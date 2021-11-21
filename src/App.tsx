@@ -5,7 +5,6 @@ import Counter from "./Counter/Counter";
 import Settings from "./Counter/settings";
 
 
-
 function App() {
     const [editMode, setEditMode] = useState<boolean>(true)
     const [maxValue, setMaxValue] = useState<number>(5)
@@ -17,7 +16,7 @@ function App() {
         let startValueString = localStorage.getItem('startValueKey')
         if (startValueString) {
             let newValue = JSON.parse(startValueString)
-            //setStartValue(newValue)
+            setStartValue(newValue)
         }
         let maxValueString = localStorage.getItem('maxValueKey')
         if (maxValueString) {
@@ -25,10 +24,10 @@ function App() {
         }
     }, [])
 
-    useEffect(() => {
-        localStorage.setItem('startValueKey', JSON.stringify(startValue))
-        localStorage.setItem('maxValueKey', JSON.stringify(maxValue))
-    }, [startValue, maxValue])
+    // useEffect(() => {
+    //     localStorage.setItem('startValueKey', JSON.stringify(startValue))
+    //     localStorage.setItem('maxValueKey', JSON.stringify(maxValue))
+    // }, [startValue, maxValue])
 
 
     const onInc = () => {
@@ -68,8 +67,8 @@ function App() {
     const newSetEditMode = () => {
         resetCount()
         setEditMode(true)
-
-
+        localStorage.setItem('startValueKey', JSON.stringify(startValue))
+        localStorage.setItem('maxValueKey', JSON.stringify(maxValue))
     }
 
     return (
