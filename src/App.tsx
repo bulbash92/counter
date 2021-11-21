@@ -24,10 +24,6 @@ function App() {
         }
     }, [])
 
-    // useEffect(() => {
-    //     localStorage.setItem('startValueKey', JSON.stringify(startValue))
-    //     localStorage.setItem('maxValueKey', JSON.stringify(maxValue))
-    // }, [startValue, maxValue])
 
 
     const onInc = () => {
